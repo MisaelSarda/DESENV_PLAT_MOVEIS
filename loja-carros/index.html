@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Carros</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <div class="logo">🚗 AutoCar</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Catálogo</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Seu próximo carro está aqui</h1>
+    <p>Modelos novos e seminovos com condições especiais.</p>
+  </section>
+
+  <main class="catalogo">
+    <div class="card">
+      <img src="images/carro1.jpg" alt="Honda HR-V 1.5 Turbo Flex Automático">
+      <h2>Honda HR-V</h2>
+      <p>1.5 Turbo Flex Automático</p>
+      <span>R$ 209.900,00</span>
+    </div>
+
+    <div class="card">
+      <img src="images/carro2.jpg" alt="Nissan Versa 2.0 Flex Automático">
+      <h2>Nissan Sentra</h2>
+      <p>2.0 Flex Automático</p>
+      <span>R$ 195.890,00</span>
+    </div>
+
+    <div class="card">
+      <img src="images/carro3.jpg" alt="Chevrolet Onix 1.0 Turbo Flex Automático">
+      <h2>Chevrolet Onix</h2>
+      <p>1.0 Turbo Flex Automático</p>
+      <span>R$ 129.900,00</span>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 AutoCar - Todos os direitos reservados. Misael Sardá</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+
+    hamburger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js")
+          .then(() => console.log("Service Worker registrado!"))
+          .catch(err => console.log("Erro ao registrar SW:", err));
+      });
+    }
+  </script>
+</body>
+</html>
