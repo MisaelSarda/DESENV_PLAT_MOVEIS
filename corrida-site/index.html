@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASCAR - Velocidade e Emoção</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <div class="logo">NASCAR</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#pilotos">Pilotos</a></li>
+        <li><a href="#corridas">Corridas</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>A emoção da NASCAR</h1>
+      <p>A maior competição de automobilismo dos Estados Unidos.</p>
+      <a href="#corridas" class="btn">Explorar</a>
+    </div>
+  </section>
+
+  <section id="sobre" class="content">
+    <h2>Sobre a NASCAR</h2> 
+    <p>
+      A NASCAR (National Association for Stock Car Auto Racing) é a principal
+      categoria de corridas de stock car nos Estados Unidos, famosa por suas
+      emocionantes disputas em circuitos ovais.
+    </p>
+
+    <figure class="image-box">
+      <img src="images/nascar-sobre.png" alt="Corrida NASCAR">
+      <figcaption>Corrida da NASCAR em Atlanta</figcaption>
+    </figure>
+  </section>
+
+<section id="pilotos" class="content">
+  <h2>Pilotos em Destaque</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="images/piloto1.png" alt="Dale Earnhardt Sr." class="contain-img">
+      <h3>Dale Earnhardt Sr.</h3>
+      <p>7x Campeão da Nascar Cup Series</p>
+    </div>
+    <div class="card">
+      <img src="images/piloto2.png" alt="Jimmie Johnson">
+      <h3>Jimmie Johnson</h3>
+      <p>7x Campeão da Nascar Cup Series</p>
+    </div>
+    <div class="card">
+      <img src="images/piloto3.png" alt="Jeff Gordon">
+      <h3>Jeff Gordon</h3>
+      <p>4x Campeão da Nascar Cup Series</p>
+    </div>
+  </div>
+</section>
+
+  <section id="corridas" class="content">
+    <h2>Principais Corridas</h2>
+    <ul>
+      <li>Daytona 500</li>
+      <li>Talladega Superspeedway</li>
+      <li>Bristol Motor Speedway</li>
+    </ul>
+  </section>
+
+  <footer id="contato">
+    <p>© 2025 - Website sobre NASCAR | Desenvolvido para fins acadêmicos</p>
+  </footer>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registrado"))
+        .catch(err => console.log("Erro ao registrar Service Worker:", err));
+    }
+  </script>
+</body>
+</html>
