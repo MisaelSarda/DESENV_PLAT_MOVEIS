@@ -1,20 +1,74 @@
 {
-  "name": "NASCAR Website",
+  "name": "NASCAR - Velocidade e Emoção",
   "short_name": "NASCAR",
-  "start_url": "index.html",
+  "description": "A maior competição de automobilismo dos Estados Unidos. Conheça os pilotos, corridas e a emoção da velocidade.",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#111",
+  "orientation": "portrait-primary",
+  "background_color": "#111111",
   "theme_color": "#e10600",
+  "lang": "pt-BR",
+  "categories": ["sports", "entertainment", "automotive"],
   "icons": [
     {
-      "src": "images/icon-192.png",
+      "src": "images/nascar-hero.jpg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg",
+      "purpose": "any maskable"
     },
     {
-      "src": "images/icon-512.png",
+      "src": "images/nascar-hero.jpg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/nascar-hero.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Homepage da NASCAR"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Sobre NASCAR",
+      "short_name": "Sobre",
+      "description": "Saiba mais sobre a NASCAR",
+      "url": "./index.html#sobre",
+      "icons": [
+        {
+          "src": "images/nascar-sobre.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Pilotos",
+      "short_name": "Pilotos",
+      "description": "Conheça os pilotos em destaque",
+      "url": "./index.html#pilotos",
+      "icons": [
+        {
+          "src": "images/piloto1.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Corridas",
+      "short_name": "Corridas",
+      "description": "Principais corridas da NASCAR",
+      "url": "./index.html#corridas",
+      "icons": [
+        {
+          "src": "images/talladega.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ]
 }
