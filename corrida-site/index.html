@@ -115,24 +115,27 @@
   </footer>
 
   <script>
-    
+    // Service Worker para PWA
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js")
         .then(() => console.log("Service Worker registrado com sucesso"))
         .catch(err => console.log("Erro ao registrar Service Worker:", err));
     }
 
+    // Menu mobile
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
     }
 
+    // Fechar menu ao clicar em um link
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
       });
     });
 
+    // Smooth scroll para navegação
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();

@@ -31,6 +31,7 @@ self.addEventListener('install', event => {
   );
 });
 
+
 self.addEventListener('activate', event => {
   console.log('Service Worker: Ativando...');
   event.waitUntil(
@@ -50,8 +51,9 @@ self.addEventListener('activate', event => {
   );
 });
 
-self.addEventListener('fetch', event => {
 
+self.addEventListener('fetch', event => {
+  
   if (STATIC_FILES.includes(event.request.url.replace(self.location.origin, '.'))) {
     event.respondWith(
       caches.match(event.request)
@@ -65,9 +67,8 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       fetch(event.request)
         .then(response => {
-          
+      
           const responseClone = response.clone();
-          
           
           caches.open(DYNAMIC_CACHE)
             .then(cache => {
@@ -77,7 +78,7 @@ self.addEventListener('fetch', event => {
           return response;
         })
         .catch(() => {
-          
+        
           return caches.match(event.request);
         })
     );
