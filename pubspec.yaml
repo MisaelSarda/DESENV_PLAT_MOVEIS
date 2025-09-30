@@ -1,0 +1,26 @@
+name: layout_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0' # Usar um intervalo é uma prática melhor
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^4.0.0 # Versão mais recente e compatível
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/lake.jpg
