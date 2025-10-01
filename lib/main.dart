@@ -7,31 +7,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Turismo na Suíça';
+    const String appTitle = 'Lendas da NASCAR';
     return MaterialApp(
       title: appTitle,
-      
       theme: ThemeData(
-        primarySwatch: Colors.green, 
+        primarySwatch: Colors.deepOrange, // Cor mais associada a corridas
       ),
       home: Scaffold(
         appBar: AppBar(title: const Text(appTitle)),
         body: const SingleChildScrollView(
           child: Column(
             children: [
-              ImageSection(image: 'images/lake.jpg'),
+              ImageSection(image: 'images/membros_gang.jpg'), // Imagem 1
               TitleSection(
-                name: 'Acampamento do Lago Oeschinen',
-                location: 'Kandersteg, Suíça',
+                name: 'A Gangue do Alabama',
+                location: 'Talladega Superspeedway, Alabama',
               ),
               ButtonSection(),
               TextSection(
                 description:
-                    'O Lago Oeschinen fica aos pés do Blüemlisalp, nos Alpes Berneses.'
-                    ' Situado a 1.578 metros acima do nível do mar, é um dos maiores lagos alpinos.'
-                    ' Um passeio de gôndola saindo de Kandersteg, seguido por uma caminhada de meia hora por pastos e florestas de pinheiros,'
-                    ' leva você ao lago, que chega a 20 graus Celsius no verão. As atividades disponíveis aqui incluem remo e tobogã no verão.',
+                    'Longe de serem foras da lei, a "Gangue do Alabama" era o apelido de um grupo de pilotos lendários da NASCAR '
+                    'baseados em Hueytown, Alabama. Liderados pelos irmãos Bobby e Donnie Allison e por Red Farmer, '
+                    'eles eram conhecidos por sua competitividade feroz na pista e sua amizade inabalável fora dela. '
+                    'Eles dominaram as corridas nas décadas de 1960, 70 e 80, e Talladega era considerada sua pista de casa. '
+                    'A próxima geração, incluindo Neil Bonnett e Davey Allison, filho de Bobby, continuou o legado. '
+                    'A história da Gangue do Alabama é uma das mais celebradas no automobilismo, simbolizando talento, '
+                    'coragem e a camaradagem do Sul dos EUA.',
               ),
+              // NOME DA IMAGEM CORRIGIDO AQUI
+              ImageSection(image: 'images/pista_talladega.jpg'), // Imagem 2
             ],
           ),
         ),
@@ -39,7 +43,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 class TitleSection extends StatefulWidget {
   const TitleSection({super.key, required this.name, required this.location});
@@ -52,11 +55,9 @@ class TitleSection extends StatefulWidget {
 }
 
 class _TitleSectionState extends State<TitleSection> {
-  
   bool _isFavorited = true;
-  int _favoriteCount = 41;
+  int _favoriteCount = 88; // Número icônico da NASCAR
 
-  
   void _toggleFavorite() {
     setState(() {
       if (_isFavorited) {
@@ -82,27 +83,28 @@ class _TitleSectionState extends State<TitleSection> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    widget.name, 
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    widget.name,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
                 Text(
                   widget.location,
-                  style: TextStyle(color: Colors.grey[500]),
+                  style: TextStyle(color: Colors.grey[600]),
                 ),
               ],
             ),
           ),
-          
           GestureDetector(
-            onTap: _toggleFavorite, 
+            onTap: _toggleFavorite,
             child: Row(
               children: [
                 Icon(
-                  _isFavorited ? Icons.star : Icons.star_border, 
-                  color: _isFavorited ? Colors.red[500] : Colors.grey, 
+                  _isFavorited ? Icons.star : Icons.star_border,
+                  color:
+                      _isFavorited ? Colors.orange[800] : Colors.grey,
                 ),
-                Text('$_favoriteCount'), 
+                Text('$_favoriteCount'),
               ],
             ),
           ),
@@ -122,25 +124,25 @@ class ButtonSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          
           ButtonWithText(
             color: color,
-            icon: Icons.call,
-            label: 'LIGUE',
+            icon: Icons.sports_motorsports, // Ícone temático
+            label: 'PILOTOS',
             onPressed: () {
-              
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Iniciando chamada...')),
+                const SnackBar(
+                    content: Text('Mostrando lendas como Bobby Allison...')),
               );
             },
           ),
           ButtonWithText(
             color: color,
-            icon: Icons.near_me,
-            label: 'ROTA',
+            icon: Icons.flag, // Ícone temático
+            label: 'CORRIDAS',
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Mostrando rota no mapa...')),
+                const SnackBar(
+                    content: Text('Relembrando vitórias em Talladega...')),
               );
             },
           ),
@@ -150,7 +152,7 @@ class ButtonSection extends StatelessWidget {
             label: 'COMPARTILHAR',
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Abrindo opções de compartilhamento...')),
+                const SnackBar(content: Text('Compartilhando a lenda...')),
               );
             },
           ),
@@ -160,27 +162,25 @@ class ButtonSection extends StatelessWidget {
   }
 }
 
-
 class ButtonWithText extends StatelessWidget {
   const ButtonWithText({
     super.key,
     required this.color,
     required this.icon,
     required this.label,
-    required this.onPressed, 
+    required this.onPressed,
   });
 
   final Color color;
   final IconData icon;
   final String label;
-  final VoidCallback onPressed; 
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    
     return InkWell(
-      onTap: onPressed, 
-      borderRadius: BorderRadius.circular(8), 
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(8),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -215,7 +215,7 @@ class TextSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(32),
-      child: Text(description, softWrap: true),
+      child: Text(description, softWrap: true, textAlign: TextAlign.justify),
     );
   }
 }
@@ -227,6 +227,9 @@ class ImageSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(image, width: 600, height: 240, fit: BoxFit.cover);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Image.asset(image, width: 600, height: 240, fit: BoxFit.cover),
+    );
   }
 }
